@@ -1,6 +1,7 @@
 class MemosController < ApplicationController
   def index
     @memo = Memo.new
+    @memos = Memo.all
   end
   
   def create
