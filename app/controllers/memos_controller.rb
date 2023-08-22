@@ -9,10 +9,10 @@ class MemosController < ApplicationController
     redirect_to root_path
   end
 
-  def show
+  def update
   end
 
-  def edit
+  def destroy
   end
   
   private
