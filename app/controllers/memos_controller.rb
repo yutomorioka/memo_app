@@ -3,23 +3,29 @@ class MemosController < ApplicationController
     @memo = Memo.new
     @memos = Memo.all
   end
-  
+
   def create
-    @memo = Memo.new(memo_params)
+    @memo = Memo.new(memos_params)
     @memo.save
-    redirect_to root_path
+    redirect_to  request.referer
   end
 
   def update
+    @memo = Memo.find(params[:id])
+    @memo.update(memos_params)
+    redirect_to  request.referer
   end
 
   def destroy
+    @memo = Memo.find(params[:id])
+    @memo.destroy
+    redirect_to  request.referer
   end
-  
+
   private
-  
-  def memo_params
+
+  def memos_params
     params.require(:memo).permit(:title, :body)
   end
-  
+
 end

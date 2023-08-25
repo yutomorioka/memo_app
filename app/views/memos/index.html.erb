@@ -1,5 +1,3 @@
-<h1>メモ帳</h1>
-
 <%= form_with model: @memo, method: :post do |f| %>
   <%= f.label:タイトル %>
   <%= f.text_field :title %>
@@ -16,4 +14,5 @@
     <%= f.text_area :body %>
     <%= f.submit '更新' %>
   <% end %>
+  <%= button_to "削除", memo_path(memo.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 <% end %>
